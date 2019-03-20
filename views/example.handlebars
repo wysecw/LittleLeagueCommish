@@ -1,0 +1,22 @@
+<!--Kept for example of for loop, trash when finished-->
+
+<h1>Ballot For District {{district}}, voter {{voterId}}</h1>
+<form method="post" action="/vote">
+    <input type="hidden" name="district" value="{{district}}"/>
+    <input type="hidden" name="voterId" value="{{voterId}}"/>
+    
+    {{!--loop over the races and output them as radio button choices--}}
+    {{#each races}}
+    <fieldset>
+        <legend>{{office}}</legend>
+        {{#each candidates}}
+            <input type="radio" id="{{../id}}" name="{{../id}}" value="{{name}}"/>
+            <label for="{{../id}}">
+                {{name}}
+                {{#if party}} {{party}} {{/if}}
+                </label><br>
+        {{/each}}
+    </fieldset>
+    {{/each}}
+    <input type="submit" value="Submit" />
+</form>
