@@ -13,10 +13,6 @@ const options= ({server: {socketOptions: {keepAlive: 1}}});
 let db1 = mongoose.connect('mongodb://farquad:capstone2019@ds121026.mlab.com:21026/little-league-commish', options);
 let Player = require('./models/player.js')(db1);
 
-// Open the connections
-//db1.on('error', console.error.bind(console, 'connection error:'));
-//db1.once('open', function() { console.log("db1 connected"); });
-
 // set up handlebars view engine
 let handlebars = require('express-handlebars')
 	.create({ defaultLayout:'main' });
