@@ -14,8 +14,8 @@ let db1 = mongoose.connect('mongodb://farquad:capstone2019@ds121026.mlab.com:210
 let Player = require('./models/player.js')(db1);
 
 // Open the connections
-db1.on('error', console.error.bind(console, 'connection error:'));
-db1.once('open', function() { console.log("db1 connected"); });
+//db1.on('error', console.error.bind(console, 'connection error:'));
+//db1.once('open', function() { console.log("db1 connected"); });
 
 // set up handlebars view engine
 let handlebars = require('express-handlebars')
