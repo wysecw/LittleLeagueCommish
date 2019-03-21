@@ -10,7 +10,7 @@ let mongoose = require('mongoose');
 const options= ({server: {socketOptions: {keepAlive: 1}}});
 
 // Set up first mongoose connection
-let db1 = mongoose.createConnection('mongodb:', options);//need conection string
+let db1 = mongoose.createConnection('mongodb://farquad:capstone2019@ds121026.mlab.com:21026/little-league-commish', options);
 let Player = require('./models/player.js')(db1);
 
 // Open the connections
