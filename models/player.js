@@ -1,12 +1,21 @@
 const mongoose = require("mongoose");
+let Schema = mongoose.Schema;
 
-
-let playerSchema = new mongoose.Schema({
-name: String,
-parentName: String,
-address: String,
-dob: Date,
-age: Number //calculated??
+let PlayerSchema = new Schema({
+    first_name: String,
+    last_name: String,
+    parent_name: String,
+    address: String,
+    phone_number: String, //TODO validator or helper
+    dob: Date,
+    age: Number //calculated with virtual helper at later date
 });
 
-module.exports = mongoose.model('Player', playerSchema);
+//virtual function for full name
+
+//virtual function for age
+
+//virtual for team url
+
+
+module.exports = mongoose.model('Player', PlayerSchema);
