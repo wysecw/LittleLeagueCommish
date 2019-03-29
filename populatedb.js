@@ -120,7 +120,7 @@ function leagueCreate(name, director){
 
 
 function createPlayers(){
-    //playerCreate("Test1", "Player1", "Test Parent1", "1 Test St. Test, FL", "111-1111", 2010-1-1, 11);
+    playerCreate("Test1", "Player1", "Test Parent1", "1 Test St. Test, FL", "111-1111", 2010-1-1, 11);
     playerCreate("Test2", "Player2", "Test Parent2", "2 Test St. Test, FL", "222-2222", 2010-2-2, 12);
     playerCreate("Test3", "Player3", "Test Parent3", "3 Test St. Test, FL", "333-3333", 2010-3-3, 13);
     playerCreate("Test4", "Player4", "Test Parent4", "4 Test St. Test, FL", "444-4444", 2010-4-4, 14);
