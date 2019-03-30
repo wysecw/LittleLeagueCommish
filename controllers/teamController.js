@@ -1,7 +1,10 @@
+//controller pages hold the functions, queries etc.
+
 const Team = require('../models/team');
 
 //display a list of all teams
 exports.team_list = function(req, res){
+    //db query goes here, same for all of these functions
     res.render('team', {message:"NOT IMPLEMENTED: Team List"});
 };
 

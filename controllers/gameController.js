@@ -1,7 +1,10 @@
+//controller pages hold the functions, queries etc.
+
 const game = require('../models/game');
 
 //display a list of all games
 exports.game_list = function(req, res){
+    //db query goes here, same for all of these
     res.send("NOT IMPLEMENTED: game List");
 };
 

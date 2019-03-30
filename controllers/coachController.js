@@ -1,7 +1,10 @@
+//controller pages hold the functions, queries etc.
+
 const coach = require('../models/coach');
 
 //display a list of all coachs
 exports.coach_list = function(req, res){
+    //db query goes here, same for all of these
     res.send("NOT IMPLEMENTED: coach List");
 };
 

@@ -1,3 +1,4 @@
+//router page, tells express what to do based on the end point and GET or POST
 var express = require('express');
 var router = express.Router();
 
