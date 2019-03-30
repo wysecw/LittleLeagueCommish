@@ -2,7 +2,7 @@ const league = require('../models/league');
 
 //display a list of all leagues
 exports.league_list = function(req, res){
-    res.send("NOT IMPLEMENTED: league List");
+    res.render('league', {message: "NOT IMPLEMENTED: league List"});
 };
 
 // Display detail page for a specific league.

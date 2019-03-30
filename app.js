@@ -1,5 +1,6 @@
 //imports
 const express = require('express');
+const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
@@ -9,6 +10,7 @@ const coachRouter = require('./routes/coach');
 const leagueRouter = require('./routes/league');
 const playerRouter = require('./routes/player');
 const teamRouter = require('./routes/team');
+const aboutRouter = require('./routes/about');
 
 //set-up express
 let app = express();
@@ -25,9 +27,7 @@ mongoose.connect(conn, options).then(
 );
 
 // set up handlebars view engine
-let handlebars = require('express-handlebars')
-	.create({ defaultLayout:'main' });
-app.engine('handlebars', handlebars.engine);
+app.engine('handlebars', handlebars({ defaultLayout:'main' }));
 app.set('view engine', 'handlebars');
 //set the port
 app.set('port', process.env.PORT || 5500);
@@ -41,6 +41,9 @@ app.use('/coach', coachRouter);
 app.use('/league', leagueRouter);
 app.use('/player', playerRouter);
 app.use('/team', teamRouter);
+app.get('/about', function(req, res){
+	res.render('about');
+});
 
 // 404 catch-all handler (middleware)
 app.use(function(req, res, next){

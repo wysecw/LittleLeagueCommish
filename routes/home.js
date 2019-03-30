@@ -9,7 +9,7 @@ const coach_controller = require('../controllers/coachController');
 const game_controller = require('../controllers/gameController');
 
 //get the home page
-router.get('/', function(req, res) {
+router.get('/', function(req, res, next) {
 	res.render('home');
 });
 

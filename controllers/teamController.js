@@ -2,7 +2,7 @@ const Team = require('../models/team');
 
 //display a list of all teams
 exports.team_list = function(req, res){
-    res.send("NOT IMPLEMENTED: Team List");
+    res.render('team', {message:"NOT IMPLEMENTED: Team List"});
 };
 
 // Display detail page for a specific team.
@@ -39,3 +39,4 @@ exports.team_update_get = function(req, res) {
 exports.team_update_post = function(req, res) {
     res.send('NOT IMPLEMENTED: team update POST');
 };
+
