@@ -1,17 +1,20 @@
+//imports
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const homeRouter = require('./routes/home');
 
+//set-up express
 let app = express();
 
+//tell express to use body-parser for the http request body(req.body)
 app.use(bodyParser.urlencoded({extended: false}));
 
-let mongoose = require('mongoose');
-//mongoose options
-const options= ({server: {socketOptions: {keepAlive: 1}}});
-
-// Set up first mongoose connection
-let db1 = mongoose.connect('mongodb://farquad:capstone2019@ds121026.mlab.com:21026/little-league-commish', options);
-let Player = require('./models/player.js')(db1);
+// Set up mongoose connection to mongoDB
+let db = mongoose.connect('mongodb://farquad:capstone2019@ds121026.mlab.com:21026/little-league-commish', { useNewUrlParser: true });
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // set up handlebars view engine
 let handlebars = require('express-handlebars')
@@ -22,6 +25,12 @@ app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public'));
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/home', homeRouter);
+app.use('/home', homeRouter);
+app.use('/home', homeRouter);
 
 //set home page
 app.get('/', function(req, res) {
