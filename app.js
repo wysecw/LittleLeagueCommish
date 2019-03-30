@@ -10,29 +10,32 @@ const coachRouter = require('./routes/coach');
 const leagueRouter = require('./routes/league');
 const playerRouter = require('./routes/player');
 const teamRouter = require('./routes/team');
-const aboutRouter = require('./routes/about');
 
-//set-up express
+//create an instance of express
 let app = express();
 
 //tell express to use body-parser for the http request body(req.body)
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Set up mongoose connection to mongoDB
+//mongoDB connection string
 const conn = 'mongodb://farquad:capstone2019@ds121026.mlab.com:21026/little-league-commish';
+//connection options
 const options = { useNewUrlParser: true };
+//make the connection to the database and log any errors to console
 mongoose.connect(conn, options).then(
 	() => {console.log('Mongo Connection Successful')},
 	err => {console.log(err)}
 );
 
-// set up handlebars view engine
+// set up handlebars view engine and default layout
 app.engine('handlebars', handlebars({ defaultLayout:'main' }));
 app.set('view engine', 'handlebars');
 //set the port
-app.set('port', process.env.PORT || 5500);
+app.set('port', process.env.PORT || 3000);
 //set the working directory
 app.use(express.static(__dirname + '/public'));
+
 //attach routers to end points
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -41,6 +44,9 @@ app.use('/coach', coachRouter);
 app.use('/league', leagueRouter);
 app.use('/player', playerRouter);
 app.use('/team', teamRouter);
+
+//no router or handling necessary, just render it
+//edit about page directly in about.handlebars
 app.get('/about', function(req, res){
 	res.render('about');
 });
@@ -58,6 +64,7 @@ app.use(function(err, req, res, next){
 	res.render('500');
 });
 
+//tell express to start listening
 app.listen(app.get('port'), function(){
   console.log( 'Express started on http://localhost:' +
     app.get('port') + '; press Ctrl-C to terminate.' );
