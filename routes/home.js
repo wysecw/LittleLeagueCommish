@@ -8,6 +8,11 @@ const league_controller = require('../controllers/leagueController');
 const coach_controller = require('../controllers/coachController');
 const game_controller = require('../controllers/gameController');
 
+//get the home page
+router.get('/', function(req, res) {
+	res.render('home');
+});
+
 //player routes
 //GET request for creating player
 router.get('/player/create', player_controller.player_create_get);

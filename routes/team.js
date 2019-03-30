@@ -3,7 +3,8 @@ const router = express.Router();
 
 // GET team page.
 router.get('/team', function(req, res) {
-  res.redirect('/team');
+    console.log("show team");
+  res.redirect('team');
 });
 
 module.exports = router;
