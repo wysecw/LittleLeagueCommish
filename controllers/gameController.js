@@ -3,9 +3,11 @@
 const game = require('../models/game');
 
 //display a list of all games
-exports.game_list = function(req, res){
-    //db query goes here, same for all of these
-    res.send("NOT IMPLEMENTED: game List");
+exports.game_list = function(req, res, next){
+    /*game.find({},function (err, list_game) {
+      if (err) { console.log(err) }
+      res.render('team', { book_list:  list_game});
+    });*/
 };
 
 // Display detail page for a specific game.

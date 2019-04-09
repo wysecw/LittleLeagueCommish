@@ -1,11 +1,20 @@
 //controller pages hold the functions, queries etc.
 
-const league = require('../models/league');
+const League = require('../models/league');
 
 //display a list of all leagues
-exports.league_list = function(req, res){
-    //db query goes here, same for all of these
-    res.render('league', {message: "NOT IMPLEMENTED: league List"});
+exports.league_list = function(req, res, next){
+    League.find({} ,function(err, result){
+        if(err){console.log(err)};
+        res.render('league', {league_list: result});
+    }
+)};
+
+exports.set_league_options = function(){
+    League.find({}, 'name' ,function(err, result){
+        if(err){console.log(err)};
+				return result;
+	})
 };
 
 // Display detail page for a specific league.

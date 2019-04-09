@@ -3,15 +3,16 @@ let Coach = require('./models/coach');
 let Team = require('./models/team');
 let League = require('./models/league');
 let Game = require('./models/game');
-
+let async = require('async');
 // Set up mongoose connection
 let mongoose = require('mongoose');
 let conString = 'mongodb://farquad:capstone2019@ds121026.mlab.com:21026/little-league-commish';
 
-mongoose.connect(conString, { useNewUrlParser: true }); 
-mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
-mongoose.connection.once('open', function(){
-console.log('Connected');
+mongoose.connect(conString, { useNewUrlParser: true }).then(
+	() => {console.log('Mongo Connection Successful')},
+	err => {console.log(err)}
+); 
+/*
 let players = [];
 let coaches = [];
 let teams = [];
@@ -61,7 +62,7 @@ function coachCreate(first_name, last_name, address, phone_number){
 
 function gameCreate(date, time, field){
 
-    gameDetail = {  game_date: date,
+    let gameDetail = {  game_date: date,
                     game_time: time,
                     field_number: field
                     };
@@ -73,18 +74,16 @@ function gameCreate(date, time, field){
             return console.log(err);
         }
         console.log('New Game: ' + game);
-        games.push(game);
+        //games.push(game);
     });
                 
 }
 
 function teamCreate(team_name, head_coach, assistant_coach){
 
-    teamDetail = {  team_name: team_name,
-                    coaches:{
-                        head_coach: head_coach,
-                        assistant_coach: assistant_coach
-                        },
+    let teamDetail = {  team_name: team_name,
+                    head_coach: head_coach,
+                    assistant_coach: assistant_coach
                     };
 
     let team = new Team(teamDetail);
@@ -94,7 +93,7 @@ function teamCreate(team_name, head_coach, assistant_coach){
             return console.log(err);
         }
         console.log('New Team: ' + team);
-        teams.push(team);
+        //teams.push(team);
     });
                 
 }
@@ -149,10 +148,13 @@ function createGames(){
 }
 
 function createTeams(){
-    teamCreate("Test Team1", coaches[0], coaches[1]);
-    teamCreate("Test Team1", coaches[2], coaches[3]);
-    teamCreate("Test Team1", coaches[4], coaches[5]);
-    teamCreate("Test Team1", coaches[6], coaches[7]);
+    Coach.find({}, function(err, coaches){
+        if(err){return console.log(err)};
+        teamCreate("Test Team1", coaches[0], coaches[1]);
+        teamCreate("Test Team2", coaches[2], coaches[3]);
+        teamCreate("Test Team3", coaches[4], coaches[5]);
+        teamCreate("Test Team4", coaches[6], coaches[7]);
+    });
 }
 
 function createLeagues(){
@@ -160,18 +162,94 @@ function createLeagues(){
     leagueCreate("Test League2", "Test Director2");
 }
 
-createPlayers();
-createCoaches();
+//createPlayers();
+//createCoaches();
 createGames();
 createTeams();
-createLeagues();
+//createLeagues();
+*/
 
 
-});
-
-//not closed, wait on a call back
 
 
+//return team and add players
+ /*async.parallel({
+     team: function(callback){
+         Team.find({})
+         .exec(callback)
+         },
+     players: function(callback){
+         Player.find({})
+         .exec(callback);
+        },
+    }, function(err, results){
+         if(err){return console.log(err)};
+         let j = 0;
+         for(let k = 0; k < results.team.length; k++){
+            for(let i = 0; i < 2; i++){
+                results.team[k].roster.push(results.players[j]);
+                j++;
+            }
+            results.team[k].save(function(err){
+                if (err){
+                    return console.log(err);
+                }
+                console.log('Great Success');
+             })
+         }
+    })*/
+
+    /*async.parallel({
+         team: function(callback){
+             Team.find({})
+             .exec(callback)
+             },
+         league: function(callback){
+             League.find({})
+             .exec(callback)
+         }
+     },function(err, results){
+          if(err){return console.log(err)};
+         results.league[0].teams.push(results.team[0]);
+         results.league[0].teams.push(results.team[1]);
+         results.league[1].teams.push(results.team[2]);
+         results.league[1].teams.push(results.team[3]);
+         results.league[0].save(function(err){
+             if(err){return console.log(err)};
+             console.log("League 1 success");
+         });
+         results.league[1].save(function(err){
+             if(err){return console.log(err)};
+             console.log("League 2 success");
+         });
+     })*/
+    
+ async.parallel({
+     team: function(callback){
+         Team.find({})
+         .exec(callback)
+         },
+     game: function(callback){
+         Game.find({})
+         .exec(callback);
+        },
+    }, function(err, results){
+         if(err){return console.log(err)};
+         let i =0;
+         results.team.forEach(function(elem){
+             elem.schedule.push(results.game[i]);
+             i++;
+             elem.save(function(err){
+                if (err){
+                    return console.log(err);
+                }
+                console.log('saved');
+              });
+         });
+         
+    })
+     
+ 
 
 
 

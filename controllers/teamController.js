@@ -3,9 +3,12 @@
 const Team = require('../models/team');
 
 //display a list of all teams
-exports.team_list = function(req, res){
-    //db query goes here, same for all of these functions
-    res.render('team', {message:"NOT IMPLEMENTED: Team List"});
+exports.team_list = function(req, res, next){
+    //  Team.find({}, function(err, result){
+    //         if(err){console.log(err);}
+    //         console.log(result);
+           res.render('team');
+    
 };
 
 // Display detail page for a specific team.
