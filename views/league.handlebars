@@ -8,3 +8,18 @@
     <h1>League: {{name}}</h1>
     <h4>Director: {{director}}</h4>
 {{/each}}
+
+{{#each league_list}}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">League: {{name}}</h5>
+        <p class="card-text"> Director: {{director}}</p>
+
+        <a href="#" class="btn btn-primary">Get Stats</a>
+      </div>
+    </div>
+  </div>
+  </div>
+{{/each}}

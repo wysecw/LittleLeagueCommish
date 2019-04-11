@@ -11,10 +11,6 @@ const leagueRouter = require('./routes/league');
 const playerRouter = require('./routes/player');
 const teamRouter = require('./routes/team');
 
-
-
-
-
 //create an instance of express
 let app = express();
 
@@ -35,14 +31,10 @@ mongoose.connect(conn, options)
 // set up handlebars view engine and default layout
 app.engine('handlebars', handlebars({ defaultLayout:'main' }));
 app.set('view engine', 'handlebars');
-
-
 //set the port
 app.set('port', process.env.PORT || 8080);
-
 //set the working directory
 app.use(express.static(__dirname + '/public'));
-
 
 //attach routers to end points
 app.use('/', indexRouter);

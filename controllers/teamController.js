@@ -3,16 +3,19 @@
 const Team = require('../models/team');
 
 //display a list of all teams
-exports.team_list = function(req, res, next){
-    //  Team.find({}, function(err, result){
-    //         if(err){console.log(err);}
-    //         console.log(result);
-           res.render('team');
-    
-};
+exports.team_list = function(req, res, next){//this query works, use it as an example
+     Team.find({})      //return all records from the team collection
+            .populate('head_coach')     //head_coach is stored here as just a key pointing to the coach record, populate gets all the coach info
+            .populate('roster')         //same for roster, just keys pointing to players, roster is an array so acces it with roster.<key>
+            .exec(function(err, result){    //execute the query and pass the call back function that says what to do with the results 
+            if(err){console.log(err);}      //catch any errors
+           res.render('team', {team_list: result}); //http response to render the team page, assign the the query result to team_list and send it to the page
+     })
+}
 
 // Display detail page for a specific team.
 exports.team_detail = function(req, res) {
+    //get team info from database using team name passed in URL
     res.send('NOT IMPLEMENTED: team detail: ' + req.params.id);
 };
 

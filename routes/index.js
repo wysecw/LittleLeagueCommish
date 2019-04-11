@@ -1,12 +1,10 @@
 //router page, tells express what to do based on the end point and GET or POST
 
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+const index_controller = require('../controllers/indexController');
 
 // GET home page.
-router.get('/', function(req, res) {
-    
-  res.redirect('home');
-});
+router.get('/', index_controller.dropdown_list);
 
 module.exports = router;
