@@ -3,19 +3,23 @@
         in the controller file, then put the variable here inside ,
          notice there are only 2 sets of curly braces (handlebar mustaches, i.e handlebars).-->
          
-{{#each team_list}}
+
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
+          {{#each result}}
         <h5 class="card-title">{{team_name}}</h5>
         {{#each roster}}
         <p class="card-text"> Player: {{first_name}} {{last_name}}</p>
            {{/each}}
-        <a href="#" class="btn btn-primary">Get Stats</a>
+           <p class="card-text"> Head Coach: {{head_coach.first_name}} {{head_coach.last_name}}</p>
+        {{/each}}
       </div>
     </div>
   </div>
   </div>
- {{/each}}
+ 
+ 
+ 
   

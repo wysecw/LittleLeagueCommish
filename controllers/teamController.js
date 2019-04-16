@@ -11,12 +11,20 @@ exports.team_list = function(req, res, next){//this query works, use it as an ex
             if(err){console.log(err);}      //catch any errors
            res.render('team', {team_list: result}); //http response to render the team page, assign the the query result to team_list and send it to the page
      })
-}
+};
 
 // Display detail page for a specific team.
-exports.team_detail = function(req, res) {
+exports.team_detail = function(req, res, next) {
+    
     //get team info from database using team name passed in URL
-    res.send('NOT IMPLEMENTED: team detail: ' + req.params.id);
+    Team.find({'team_name': req.params.id})
+    .populate('head_coach')
+    .populate('roster')   
+    .exec(function(err, result){
+        if(err){console.log(err);}
+        console.log(result);
+        res.render('team', {result: result});
+    })
 };
 
 // Display team create form on GET.

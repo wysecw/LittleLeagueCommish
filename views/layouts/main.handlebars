@@ -37,9 +37,18 @@
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Teams</button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         {{!--THIS ONE WORKS!!!--}}
-      {{#each result}}
-          <button class="dropdown-item"><a href="/home/team">{{team_name}}</a></button>
-      {{/each}} 
+         
+          <button class="dropdown-item">
+            <ul>
+               <li><a href="/home/team/Team1">Team 1</a></li> 
+               <li><a href="/home/team/Team2">Team 2</a></li>
+               <li><a href="/home/team/Team3">Team 3</a></li>
+               <li><a href="/home/team/Team4">Team 4</a></li>  
+            </ul>
+          
+          </button>
+          
+    
       </div>
       </div>
       <!--League Link-->
@@ -48,9 +57,16 @@
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Leagues</button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         {{!--NO WORKIE WORKIE--}}
-      {{#each result}}
-          <button class="dropdown-item"><a href="/home/leagues">{{name}}</a></button>
-      {{/each}}
+      
+          <button class="dropdown-item">
+            <ul>
+          <li><a href="/home/leagues">League 1</a></li> 
+         <li> <a href="/home/leagues">League 2</a></li>
+          <li><a href="/home/leagues">League 3</a></li>
+          <li><a href="/home/leagues">League 4</a></li>
+            </ul>
+       
+      </button>
       </div>
       </div>
       <!--About Link-->

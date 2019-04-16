@@ -41,9 +41,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/home', homeRouter);
 app.use('/coach', coachRouter);
-app.use('/league', leagueRouter);
+app.use('/league/', leagueRouter);
 app.use('/player', playerRouter);
-app.use('/team', teamRouter);
+app.use('/team/:team_name', teamRouter);
 
 //no router or handling necessary, just render it
 //edit about page directly in about.handlebars
