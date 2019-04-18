@@ -11,9 +11,9 @@ const game_controller = require('../controllers/gameController');
 
 
 //get the home page
-router.get('/', function(req, res, next) {
-	res.render('home');
-})
+// router.get('/', function(req, res, next) {
+// 	res.render('home');
+// })
 
 //player routes
 //GET request for creating player

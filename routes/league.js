@@ -7,7 +7,7 @@ const league_controller = require('../controllers/leagueController');
 // GET league page.
 router.get('/league', league_controller.league_list);
 
-//router.get('/league/list', league_controller.league_list);
+router.get('/league', league_controller.league_list);
 
 
 module.exports = router;

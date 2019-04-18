@@ -8,11 +8,14 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
+        {{#each result}}
         <h5 class="card-title">League:{{name}} </h5>
         <p class="card-text"> Director: {{director}}</p>
-
-        <a href="/home/team" class="btn btn-primary">View Teams</a></a>
+        {{#each teams}}
+        <a href="../team/{{team_name}}">{{team_name}}</p></a>
+        {{/each}}
+        {{/each}}
       </div>
     </div>
   </div>
-  </div>
+</div>
