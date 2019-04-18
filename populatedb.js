@@ -9,9 +9,9 @@ let mongoose = require('mongoose');
 let conString = 'mongodb://farquad:capstone2019@ds121026.mlab.com:21026/little-league-commish';
 
 mongoose.connect(conString, { useNewUrlParser: true }).then(
-	() => {console.log('Mongo Connection Successful')},
-	err => {console.log(err)}
-); 
+    () => { console.log('Mongo Connection Successful') },
+    err => { console.log(err) }
+);
 /*
 let players = [];
 let coaches = [];
@@ -38,7 +38,7 @@ function playerCreate(first_name, last_name, parent_name, address, phone_number,
         console.log('New Player: ' + player);
         players.push(player);
     });
-                
+
 }
 
 function coachCreate(first_name, last_name, address, phone_number){
@@ -57,7 +57,7 @@ function coachCreate(first_name, last_name, address, phone_number){
         console.log('New Coach: ' + coach);
         coaches.push(coach);
     });
-                
+
 }
 
 function gameCreate(date, time, field){
@@ -76,7 +76,7 @@ function gameCreate(date, time, field){
         console.log('New Game: ' + game);
         //games.push(game);
     });
-                
+
 }
 
 function teamCreate(team_name, head_coach, assistant_coach){
@@ -95,7 +95,7 @@ function teamCreate(team_name, head_coach, assistant_coach){
         console.log('New Team: ' + team);
         //teams.push(team);
     });
-                
+
 }
 
 function leagueCreate(name, director){
@@ -113,7 +113,7 @@ function leagueCreate(name, director){
         console.log('New League: ' + league);
         leagues.push(league);
     });
-                
+
 }
 
 
@@ -173,83 +173,83 @@ createTeams();
 
 
 //return team and add players
- /*async.parallel({
-     team: function(callback){
-         Team.find({})
-         .exec(callback)
-         },
-     players: function(callback){
-         Player.find({})
-         .exec(callback);
+/*async.parallel({
+    team: function(callback){
+        Team.find({})
+        .exec(callback)
         },
-    }, function(err, results){
-         if(err){return console.log(err)};
-         let j = 0;
-         for(let k = 0; k < results.team.length; k++){
-            for(let i = 0; i < 2; i++){
-                results.team[k].roster.push(results.players[j]);
-                j++;
-            }
-            results.team[k].save(function(err){
-                if (err){
-                    return console.log(err);
-                }
-                console.log('Great Success');
-             })
-         }
-    })*/
+    players: function(callback){
+        Player.find({})
+        .exec(callback);
+       },
+   }, function(err, results){
+        if(err){return console.log(err)};
+        let j = 0;
+        for(let k = 0; k < results.team.length; k++){
+           for(let i = 0; i < 2; i++){
+               results.team[k].roster.push(results.players[j]);
+               j++;
+           }
+           results.team[k].save(function(err){
+               if (err){
+                   return console.log(err);
+               }
+               console.log('Great Success');
+            })
+        }
+   })*/
 
-    /*async.parallel({
-         team: function(callback){
-             Team.find({})
-             .exec(callback)
-             },
-         league: function(callback){
-             League.find({})
-             .exec(callback)
-         }
-     },function(err, results){
-          if(err){return console.log(err)};
-         results.league[0].teams.push(results.team[0]);
-         results.league[0].teams.push(results.team[1]);
-         results.league[1].teams.push(results.team[2]);
-         results.league[1].teams.push(results.team[3]);
-         results.league[0].save(function(err){
-             if(err){return console.log(err)};
-             console.log("League 1 success");
-         });
-         results.league[1].save(function(err){
-             if(err){return console.log(err)};
-             console.log("League 2 success");
-         });
-     })*/
-    
- async.parallel({
+/*async.parallel({
      team: function(callback){
          Team.find({})
          .exec(callback)
          },
-     game: function(callback){
-         Game.find({})
-         .exec(callback);
-        },
-    }, function(err, results){
+     league: function(callback){
+         League.find({})
+         .exec(callback)
+     }
+ },function(err, results){
+      if(err){return console.log(err)};
+     results.league[0].teams.push(results.team[0]);
+     results.league[0].teams.push(results.team[1]);
+     results.league[1].teams.push(results.team[2]);
+     results.league[1].teams.push(results.team[3]);
+     results.league[0].save(function(err){
          if(err){return console.log(err)};
-         let i =0;
-         results.team.forEach(function(elem){
-             elem.schedule.push(results.game[i]);
-             i++;
-             elem.save(function(err){
-                if (err){
-                    return console.log(err);
-                }
-                console.log('saved');
-              });
-         });
-         
-    })
-     
- 
+         console.log("League 1 success");
+     });
+     results.league[1].save(function(err){
+         if(err){return console.log(err)};
+         console.log("League 2 success");
+     });
+ })*/
+
+//  async.parallel({
+//      team: function(callback){
+//          Team.find({})
+//          .exec(callback)
+//          },
+//      game: function(callback){
+//          Game.find({})
+//          .exec(callback);
+//         },
+//     }, function(err, results){
+//          if(err){return console.log(err)};
+//          let i =0;
+//          results.team.forEach(function(elem){
+//              elem.schedule.push(results.game[i]);
+//              i++;
+//              elem.save(function(err){
+//                 if (err){
+//                     return console.log(err);
+//                 }
+//                 console.log('saved');
+//               });
+//          });
+
+//     })
+
+
 
 
 

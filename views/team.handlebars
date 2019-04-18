@@ -2,24 +2,26 @@
     this comes from teamController.js line 5, you define the variable
         in the controller file, then put the variable here inside ,
          notice there are only 2 sets of curly braces (handlebar mustaches, i.e handlebars).-->
-         
+
 
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-          {{#each result}}
+        {{#each result}}
         <h5 class="card-title">{{team_name}}</h5>
+        <p class="card-text"> Head Coach: {{head_coach.first_name}} {{head_coach.last_name}}</p>
+        <p class="card-text"> Assistant Coach: {{assistant_coach.first_name}} {{assistant_coach.last_name}}</p>
         {{#each roster}}
         <p class="card-text"> Player: {{first_name}} {{last_name}}</p>
-           {{/each}}
-           <p class="card-text"> Head Coach: {{head_coach.first_name}} {{head_coach.last_name}}</p>
+        {{/each}}
+        <p class="card-text">Schedule: </p>
+        {{#each schedule}}
+        <p><span>Date: {{game_date}}</span><span>Time: {{game_time}}</span><span>Field: {{field_number}}</span></p>
+        {{/each}}
+
         {{/each}}
       </div>
     </div>
   </div>
-  </div>
- 
- 
- 
-  
+</div>

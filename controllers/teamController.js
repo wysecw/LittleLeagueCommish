@@ -23,6 +23,8 @@ exports.team_detail = function (req, res, next) {
   Team.find({ team_name: req.params.team_name })
     .populate("head_coach")
     .populate("roster")
+    .populate("schedule")
+    .populate("assistant_coach")
     .exec(function (err, result) {
       if (err) {
         console.log(err);
