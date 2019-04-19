@@ -5,12 +5,24 @@ const coach = require('../models/coach');
 //display a list of all coachs
 exports.coach_list = function(req, res){
     //db query goes here, same for all of these
-    res.send("NOT IMPLEMENTED: coach List");
+    coach.find({})
+    .exec(function (err, result) {
+    if (err) {
+        console.log(err);
+      } //catch any errors
+      res.render("team", { coach_list: result });
+    });
 };
 
 // Display detail page for a specific coach.
 exports.coach_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: coach detail: ' + req.params.id);
+    coach.find({coach_name: req.params.coach_name})
+    .exec(function (err, result) {
+    if (err) {
+        console.log(err);
+      } //catch any errors
+      res.render("team", { coach_player: result });
+    });
 };
 
 // Display coach create form on GET.

@@ -16,6 +16,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Bootswatch CSS -->
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
 
   <title>Little League Commissioner</title>
 </head>
@@ -33,11 +34,11 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <!--Home Link-->
-      <button class="btn btn-secondary "> <a href="/">Home</a>
+      <button class="btn btn-primary mr-3 text-white "> <a href="/" style="color:#ffffff">Home</a>
       </button>
       <!--Team Link-->
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        <button class="btn btn-primary dropdown-toggle mr-3" role="button" id="dropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">Teams</button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           {{#each teams}}
@@ -47,7 +48,7 @@
       </div>
       <!--League Link-->
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        <button class="btn btn-primary dropdown-toggle mr-3" role="button" id="dropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">Leagues</button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           {{#each leagues}}
@@ -56,7 +57,7 @@
         </div>
       </div>
       <!--About Link-->
-      <button class="btn btn-secondary"> <a href="/about">About</a></button>
+      <button class="btn btn-primary mr-3"> <a href="/about" style="color:#ffffff">About</a></button>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>

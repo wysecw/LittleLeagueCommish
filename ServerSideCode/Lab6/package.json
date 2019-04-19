@@ -9,12 +9,10 @@
   "author": "Your Name Here",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.6.2",
-    "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.2",
-    "moment": "^2.24.0",
-    "mongoose": "^5.5.2"
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6"
   }
 }

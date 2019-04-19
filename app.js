@@ -37,7 +37,7 @@ mongoose.connect(conn, options).then(
 app.engine("handlebars", handlebars({ defaultLayout: 'main' }));
 app.set("view engine", "handlebars");
 //set the port
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 8080);
 //set the working directory
 app.use(express.static(__dirname + "/public"));
 

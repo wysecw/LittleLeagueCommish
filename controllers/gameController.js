@@ -4,15 +4,28 @@ const game = require('../models/game');
 
 //display a list of all games
 exports.game_list = function(req, res, next){
-    /*game.find({},function (err, list_game) {
-      if (err) { console.log(err) }
-      res.render('team', { book_list:  list_game});
-    });*/
+    game.find({})
+    .populate("game_date")
+    .exec(function (err, result) {
+    if (err) {
+        console.log(err);
+      } //catch any errors
+      res.render("home", { game_list: result });
+    });
 };
 
 // Display detail page for a specific game.
 exports.game_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: game detail: ' + req.params.id);
+    game.find({game_date: req.params.game_date})
+    .populate("game_date")
+    .populate("home")
+    .populate("visitors")
+    .exec(function (err, result) {
+    if (err) {
+        console.log(err);
+      } //catch any errors
+      res.render("home", { spec_game: result });
+    });
 };
 
 // Display game create form on GET.

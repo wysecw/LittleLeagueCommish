@@ -1,10 +1,11 @@
 //controller pages hold the functions, queries etc.
 const League = require("../models/league");
 const Team = require("../models/team");
-const app = require("express")();
 
 
-exports.dropdown_list = async function (req, res, next) {
+
+
+exports.dropdown_list = async function(req, res, next) {
   res.locals.teams = await getTeamList();
   res.locals.leagues = await getLeagueList();
   next();

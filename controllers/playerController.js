@@ -5,12 +5,24 @@ const Player = require('../models/player');
 //display a list of all players
 exports.player_list = function(req, res){
     //db query goes here, same for all of these
-    res.send("NOT IMPLEMENTED: PLayer List");
+    Player.find({})
+    .exec(function (err, result) {
+    if (err) {
+        console.log(err);
+      } //catch any errors
+      res.render("team", { player_list: result });
+    });
 };
 
 // Display detail page for a player.
 exports.player_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Player detail: ' + req.params.id);
+    Player.find({first_name: req.params.first_name})
+    .exec(function (err, result) {
+    if (err) {
+        console.log(err);
+      } //catch any errors
+      res.render("team", { spec_player: result });
+    });
 };
 
 // Display Player create form on GET.
