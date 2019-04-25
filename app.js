@@ -3,6 +3,7 @@ const express = require("express");
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const homeRouter = require("./routes/home");

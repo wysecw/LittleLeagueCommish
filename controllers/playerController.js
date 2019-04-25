@@ -2,6 +2,9 @@
 
 const Player = require('../models/player');
 
+//const { body,validationResult } = require('express-validator/check');
+//const { sanitizeBody } = require('express-validator/filter');
+
 //display a list of all players
 exports.player_list = function(req, res){
     //db query goes here, same for all of these
@@ -25,15 +28,52 @@ exports.player_detail = function(req, res) {
     });
 };
 
-// Display Player create form on GET.
-exports.player_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Player create GET');
+// Display league create form on GET.
+exports.player_create_get = function (req, res) {
+    res.send('NOT IMPLEMENTED: league create GET');
 };
 
-// Handle Player create form on POST.
-exports.player_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Player create POST');
+// Handle league create on POST.
+exports.player_create_post = function (req, res) {
+    res.send('NOT IMPLEMENTED: league create POST');
 };
+
+// Display Player create form on GET.
+//exports.player_create_get = function(req, res) {
+   //  res.render('player_form', { title: 'Create Player' });
+//};
+
+// Handle Player create form on POST.
+/*exports.player_create_post = [
+
+    // Process request 
+    (req, res, next) => {
+        
+        // Create Player object 
+        var player = new Player(
+            {
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                parent_name: req.body.parent_name,
+                address: req.body.address,
+                phone_number: req.body.phone_number,
+                dob: req.body.dob,
+                age: req.body.age,
+            }
+        );
+
+        
+            
+
+            // Save player.
+            player.save(function (err) {
+                if (err) { return next(err); }
+                // Successful - redirect to new author record.
+                res.redirect(player.url);
+            });
+        
+    }
+];*/
 
 // Display Player delete form on GET.
 exports.player_delete_get = function(req, res) {
