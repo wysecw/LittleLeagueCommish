@@ -27,7 +27,7 @@ exports.coach_detail = function(req, res) {
 
 // Display coach create form on GET.
 exports.coach_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: coach create GET');
+    //  res.render('coach_form', { title: 'Create Coach' });
 };
 
 // Handle coach create on POST.

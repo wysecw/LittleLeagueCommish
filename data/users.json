@@ -1,12 +1,14 @@
 {
     "pmatthews": {
         "username": "pmatthews",
-        "password": "$2a$10$QNXI4wpB5AFpj8WLfIRY0utfRa8XaeoS5.fIZNqAr8y1NCV9ddsMy",
+        "password": "$2a$10$lU6Ypca0aTWcsAhxRDnuLupGxcBvTX9.kzVXV/JUYa/C7GblX5vWu",
         "firstname": "Pete",
         "lastname": "Matthews",
         "email": "pwm14@cox.net",
+        "phone_number": "123-456-7891",
+        "address":"123 Elm St.",
         "admin": false,
-        "instrument": "acoustic-guitar"
+        
     },
     "japple": {
         "username": "japple",
@@ -14,8 +16,10 @@
         "firstname": "James",
         "lastname": "Apple",
         "email": "japple92@gmail.com",
+        "phone_number": "123-456-7891",
+        "address":"456 Elm St.",
         "admin": false,
-        "instrument": "flute"
+        
     },
     "creynolds": {
         "username": "creynolds",
@@ -23,8 +27,10 @@
         "firstname": "Cassi",
         "lastname": "Reynolds",
         "email": "trumpetfan@gmail.com",
+        "phone_number": "123-456-7891",
+        "address":"456 Elm St.",
         "admin": false,
-        "instrument": "trumpet"
+        
     },
     "yspiegelman": {
         "username": "yspiegelman",
@@ -32,7 +38,9 @@
         "firstname": "Yonit",
         "lastname": "Spiegelman",
         "email": "admin@lessonface.com",
+        "phone_number": "123-456-7891",
+        "address":"456 Elm St.",
         "admin": true,
-        "instrument": "acoustic-guitar"
+        
     }
 }
