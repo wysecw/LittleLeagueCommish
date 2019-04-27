@@ -2,15 +2,14 @@ const mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
 let UserSchema = new Schema({
-    username: String,
-    password: String,
-    first_name: String,
-    last_name: String,
-    email: String,
-    phone_number: String,
-    address: String,
-    admin: Boolean
-    
+  username: String,
+  password: String,
+  firstname: String,
+  lastname: String,
+  email: String,
+  phone_number: String,
+  address: String,
+  admin: Boolean
 });
 
 //virtual function for full name
@@ -19,5 +18,4 @@ let UserSchema = new Schema({
 
 //virtual for team url
 
-
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);

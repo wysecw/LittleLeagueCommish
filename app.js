@@ -12,7 +12,6 @@ const leagueRouter = require("./routes/league");
 const playerRouter = require("./routes/player");
 const teamRouter = require("./routes/team");
 
-
 //create an instance of express
 let app = express();
 
@@ -35,10 +34,10 @@ mongoose.connect(conn, options).then(
   }
 );
 // set up handlebars view engine and default layout
-app.engine("handlebars", handlebars({ defaultLayout: 'main' }));
+app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 //set the port
-app.set("port", process.env.PORT || 8080);
+app.set("port", process.env.PORT || 3000);
 //set the working directory
 app.use(express.static(__dirname + "/public"));
 
@@ -53,28 +52,28 @@ app.use("/", indexRouter);
 
 //no router or handling necessary, just render it
 //edit about page directly in about.handlebars
-app.get("/about", function (req, res) {
+app.get("/about", function(req, res) {
   res.render("about");
 });
 
 // 404 catch-all handler (middleware)
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.status(404);
   res.render("404");
 });
 
 // 500 error handler (middleware)
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.status(500);
   res.render("500");
 });
 
 //tell express to start listening
-app.listen(app.get("port"), function () {
+app.listen(app.get("port"), function() {
   console.log(
     "Express started on http://localhost:" +
-    app.get("port") +
-    "; press Ctrl-C to terminate."
+      app.get("port") +
+      "; press Ctrl-C to terminate."
   );
 });

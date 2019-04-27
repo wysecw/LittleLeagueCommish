@@ -1,46 +1,42 @@
 {
-    "pmatthews": {
-        "username": "pmatthews",
-        "password": "$2a$10$lU6Ypca0aTWcsAhxRDnuLupGxcBvTX9.kzVXV/JUYa/C7GblX5vWu",
-        "firstname": "Pete",
-        "lastname": "Matthews",
-        "email": "pwm14@cox.net",
-        "phone_number": "123-456-7891",
-        "address":"123 Elm St.",
-        "admin": false,
-        
-    },
-    "japple": {
-        "username": "japple",
-        "password": "$2a$10$0Wz99HToBXUkMjSCIviZMOHF5BIFHstEPaljYKB/nUtJRJjE1WE8y",
-        "firstname": "James",
-        "lastname": "Apple",
-        "email": "japple92@gmail.com",
-        "phone_number": "123-456-7891",
-        "address":"456 Elm St.",
-        "admin": false,
-        
-    },
-    "creynolds": {
-        "username": "creynolds",
-        "password": "$2a$10$0Wz99HToBXUkMjSCIviZMOHF5BIFHstEPaljYKB/nUtJRJjE1WE8y",
-        "firstname": "Cassi",
-        "lastname": "Reynolds",
-        "email": "trumpetfan@gmail.com",
-        "phone_number": "123-456-7891",
-        "address":"456 Elm St.",
-        "admin": false,
-        
-    },
-    "yspiegelman": {
-        "username": "yspiegelman",
-        "password": "$2a$10$0Wz99HToBXUkMjSCIviZMOHF5BIFHstEPaljYKB/nUtJRJjE1WE8y",
-        "firstname": "Yonit",
-        "lastname": "Spiegelman",
-        "email": "admin@lessonface.com",
-        "phone_number": "123-456-7891",
-        "address":"456 Elm St.",
-        "admin": true,
-        
-    }
+  "pmatthews": {
+    "username": "pmatthews",
+    "password": "$2a$10$lU6Ypca0aTWcsAhxRDnuLupGxcBvTX9.kzVXV/JUYa/C7GblX5vWu",
+    "firstname": "Pete",
+    "lastname": "Matthews",
+    "email": "pwm14@cox.net",
+    "phone_number": "123-456-7891",
+    "address": "123 Elm St.",
+    "admin": false
+  },
+  "japple": {
+    "username": "japple",
+    "password": "$2a$10$0Wz99HToBXUkMjSCIviZMOHF5BIFHstEPaljYKB/nUtJRJjE1WE8y",
+    "firstname": "James",
+    "lastname": "Apple",
+    "email": "japple92@gmail.com",
+    "phone_number": "123-456-7891",
+    "address": "456 Elm St.",
+    "admin": false
+  },
+  "creynolds": {
+    "username": "creynolds",
+    "password": "$2a$10$0Wz99HToBXUkMjSCIviZMOHF5BIFHstEPaljYKB/nUtJRJjE1WE8y",
+    "firstname": "Cassi",
+    "lastname": "Reynolds",
+    "email": "trumpetfan@gmail.com",
+    "phone_number": "123-456-7891",
+    "address": "456 Elm St.",
+    "admin": false
+  },
+  "yspiegelman": {
+    "username": "yspiegelman",
+    "password": "$2a$10$0Wz99HToBXUkMjSCIviZMOHF5BIFHstEPaljYKB/nUtJRJjE1WE8y",
+    "firstname": "Yonit",
+    "lastname": "Spiegelman",
+    "email": "admin@lessonface.com",
+    "phone_number": "123-456-7891",
+    "address": "456 Elm St.",
+    "admin": true
+  }
 }
