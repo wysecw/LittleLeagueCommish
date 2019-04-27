@@ -44,30 +44,23 @@ exports.getSignUpPage = function(req, res, next) {
 };
 
 exports.createAccount = function(req, res, next) {
-  bcrypt
-    .hash(req.body.password, saltRounds, function(err, hash) {
-      if (err) {
-        console.log(err);
-      }
-      let user = new Users({
-        username: req.body.username,
-        password: hash,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        phone_number: req.body.phone_number,
-        address: req.body.address,
-        admin: false
-      });
-    })
-    .then(
-      user.save(function(err) {
-        if (err) {
-          console.log(error);
-        }
-      })
-    );
-  res.render("account", { message: "Account created successfully" });
+  let newUser = new Users({
+    username: req.body.username,
+    password: req.body.password,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    phone_number: req.body.phone_number,
+    address: req.body.address,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
+    admin: false
+  });
+  newUser.save((err, user) => {
+    if (err) res.status(500).send(err);
+    res.render("account", { message: "Account created successfully" });
+  });
 };
 
 exports.getAdminPage = function(req, res, next) {

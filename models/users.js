@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 let Schema = mongoose.Schema;
+let bcrypt = require("bcrypt");
+let SALT_WORK_FACTOR = 10;
 
 let UserSchema = new Schema({
   username: String,
@@ -9,9 +11,29 @@ let UserSchema = new Schema({
   email: String,
   phone_number: String,
   address: String,
-  admin: Boolean
+  city: String,
+  state: String,
+  zip: String,
+  admin: Boolean,
+  players: [{ type: Schema.Types.ObjectId, ref: "Player" }]
 });
 
+UserSchema.pre("save", function(next) {
+  let user = this;
+  if (!user.isModified("password")) {
+    return next();
+  }
+  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+    if (err) console.log(err);
+    bcrypt.hash(user.password, salt, function(err, hash) {
+      if (err) {
+        console.log(err);
+      }
+      user.password = hash;
+      next();
+    });
+  });
+});
 //virtual function for full name
 
 //virtual function for age
