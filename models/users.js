@@ -34,6 +34,13 @@ UserSchema.pre("save", function(next) {
     });
   });
 });
+
+UserSchema.statics.exists = async function(name) {
+  const result = await this.findOne(name)
+    .select("_id")
+    .lean();
+  return result ? true : false;
+};
 //virtual function for full name
 
 //virtual function for age

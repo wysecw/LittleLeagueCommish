@@ -1,0 +1,23 @@
+body{
+    background-image: url("/img/blackwhitebg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#title {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#cardbg{
+    opacity: .2;
+}
+
+#signin{
+    font-size: 45px;
+    color: black;
+}
+
+#signupform{
+    background-color: grey;
+}

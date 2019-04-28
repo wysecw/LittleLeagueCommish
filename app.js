@@ -39,7 +39,7 @@ app.set("view engine", "handlebars");
 //set the port
 app.set("port", process.env.PORT || 3000);
 //set the working directory
-app.use(express.static(__dirname + "/public"));
+app.use(express.static("public"));
 
 //attach routers to end points
 app.use("/", indexRouter);
@@ -48,7 +48,7 @@ app.use("/", indexRouter);
 // app.use("/coach", coachRouter);
 //app.use("/league", leagueRouter);
 // app.use("/player", playerRouter);
-//app.use("/team", indexRouter);
+//app.use("/team/*", teamRouter);
 
 //no router or handling necessary, just render it
 //edit about page directly in about.handlebars

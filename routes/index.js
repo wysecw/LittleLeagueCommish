@@ -4,6 +4,7 @@ const router = express.Router();
 const index_controller = require("../controllers/indexController");
 const team_controller = require("../controllers/teamController");
 const league_controller = require("../controllers/leagueController");
+const accountController = require("../controllers/accountController");
 // GET home page.
 
 router.use(index_controller.dropdown_list);
@@ -12,11 +13,11 @@ router.get("/", index_controller.getHomePage);
 
 router.get("/login", index_controller.getLoginPage);
 
-router.post("/login", index_controller.confirmLogin);
-
 router.get("/signup", index_controller.getSignUpPage);
 
-router.post("/signup", index_controller.createAccount);
+router.post("/account", accountController.createAccount);
+
+router.post("/account/:username", accountController.confirmLogin);
 
 router.get("/team/:team_name", team_controller.team_detail);
 

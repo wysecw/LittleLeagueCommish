@@ -1,21 +1,40 @@
-<form method="post" action="/login">
-    <fieldset>
-        <legend>Sign in</legend>
-    
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username"
-                   required /><p style="color:red;">{{nameError}}</p>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-4">
+           
         </div>
-    
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"
-                   minlength="8" required
-                   placeholder="8 characters minimum" /><p style="color:red;">{{pwError}}</p>
+        
+        <div class="col-4" >
+            
+            <div class="card text-black border-0 bg-transparent">
+                <img src="img/baseball.png" class="card-img" alt="back-ground image baseball" id="cardbg">
+                <div class="card-img-overlay ">
+                     <form method="post" action="/account/:username" 
+                        class="mt-5"  id="signinform">
+                        <fieldset>
+                            <legend class="text-center font-weight-bolder" id="signin">SIGN IN</legend>
+                            <div class="text-center">
+                                <input type="text" id="username" name="username"
+                                    required /><p style="color:red;" placeholder="User Name">{{nameError}}</p>
+                            </div>
+                            <div class="text-center">
+                        
+                                <input type="password" id="password" name="password"
+                                    minlength="8" required
+                                    placeholder="Password" /><p style="color:red;">{{pwError}}</p>
+                            </div>
+                            <div class="form-row">
+                            <input type="submit" value="Sign in" class="btn btn-primary mx-auto mb-3">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+           
         </div>
-    
-        <input type="submit" value="Sign in">
-    
-    </fieldset>
-</form>
+
+    <div class="col-4"></div>
+    </div>
+</div>
+
+
