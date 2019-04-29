@@ -17,13 +17,24 @@
   <!-- Bootswatch CSS -->
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css"> 
+  <!-- JQuery is required for the WeatherSTEM component to work -->
+		<script src="//code.jquery.com/jquery-latest.min.js"></script>
+		
+		<!-- WeatherSTEM API component must be included AFTER JQuery include -->
+		<script src="//static.weatherstem.com/api.min.js"></script>
+		
+		<!-- You must include your API key -->
+		<meta name="WeatherSTEM-api-key" content="ku53xtx9"/>
+		
+		<!-- This sets the station scope for the page -->
+		<meta name="WeatherSTEM-station" content="escambia/uwf"/>
 
   <title>Little League Commissioner</title>
 </head>
 
 <body>
 
-  <h1 id="title" class="text-light mb-0">Little League Commissioner</h1>
+  <h1 id="title" >Little League Commissioner</h1>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-0">
 
@@ -74,7 +85,8 @@
   
   {{{body}}}
   
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -84,6 +96,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 </body>
 
 </html>

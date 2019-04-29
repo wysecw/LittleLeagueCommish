@@ -5,8 +5,10 @@ body{
     background-attachment: fixed;
 }
 #title {
+    font-size: 50px;
+    color: lightslategray;
     text-align: center;
-    font-family: sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 #cardbg{
@@ -21,3 +23,10 @@ body{
 #signupform{
     background-color: grey;
 }
+
+#weatherinfo{
+    color: lightslategray;
+}
+
+
+

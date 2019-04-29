@@ -4,6 +4,7 @@ const Team = require("../models/team");
 let Users = require("../models/users");
 const express = require("express");
 const bcrypt = require("bcrypt");
+const fetch = require("node-fetch");
 
 exports.dropdown_list = async function(req, res, next) {
   res.locals.teams = await getTeamList();
