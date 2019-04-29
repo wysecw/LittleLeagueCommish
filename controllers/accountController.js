@@ -35,12 +35,14 @@ exports.createAccount = async function(req, res, next) {
     zip: req.body.zip,
     admin: false
   });
-  const userExists = await Users.exists({ name: req.body.username });
+  const userExists = await Users.exists(req.body.username);
+
   if (userExists) {
-    res.redirect("back");
+    res.render("signup", { body: newUser });
+  } else {
+    await newUser.save((err, user) => {
+      if (err) res.status(500).send(err);
+      res.render("account", { message: "Account created successfully" });
+    });
   }
-  await newUser.save((err, user) => {
-    if (err) res.status(500).send(err);
-    res.render("account", { message: "Account created successfully" });
-  });
 };

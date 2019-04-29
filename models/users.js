@@ -36,9 +36,10 @@ UserSchema.pre("save", function(next) {
 });
 
 UserSchema.statics.exists = async function(name) {
-  const result = await this.findOne(name)
+  const result = await this.findOne({ username: name })
     .select("_id")
     .lean();
+
   return result ? true : false;
 };
 //virtual function for full name
