@@ -34,12 +34,21 @@ mongoose.connect(conn, options).then(
   }
 );
 // set up handlebars view engine and default layout
-app.engine("handlebars", handlebars({ defaultLayout: "main" }));
+app.engine(
+  "handlebars",
+  handlebars({
+    defaultLayout: "main",
+    extname: ".handlebars",
+    layoutsDir: "views/layouts"
+  })
+);
+
 app.set("view engine", "handlebars");
 //set the port
 app.set("port", process.env.PORT || 3000);
 //set the working directory
 app.use(express.static("public"));
+app.use(express.static("views"));
 
 //attach routers to end points
 app.use("/", indexRouter);
