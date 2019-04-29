@@ -1,24 +1,25 @@
+<div class="conatiner">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div class="card m-3 border-dark rounded bg-transparent">
+        <div class="card-body">
+          {{#each result}}
+          <h5 class="card-title border-dark rounded text-center">{{team_name}}</h5>
+          <p class="card-text"> Head Coach: {{head_coach.first_name}} {{head_coach.last_name}}</p>
+          <p class="card-text"> Assistant Coach: {{assistant_coach.first_name}} {{assistant_coach.last_name}}</p>
+          {{#each roster}}
+          <p class="card-text"> Player: {{first_name}} {{last_name}}</p>
+          {{/each}}
+          <p class="card-text">Schedule: </p>
+          {{#each schedule}}
+          <p>{{game_date}} Time: {{game_time}} Field: {{field_number}}</p>
+          {{/each}}
 
-
-
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        {{#each result}}
-        <h5 class="card-title">{{team_name}}</h5>
-        <p class="card-text"> Head Coach: {{head_coach.first_name}} {{head_coach.last_name}}</p>
-        <p class="card-text"> Assistant Coach: {{assistant_coach.first_name}} {{assistant_coach.last_name}}</p>
-        {{#each roster}}
-        <p class="card-text"> Player: {{first_name}} {{last_name}}</p>
-        {{/each}}
-        <p class="card-text">Schedule: </p>
-        {{#each schedule}}
-        <p>{{game_date}} Time: {{game_time}} Field: {{field_number}}</p>
-        {{/each}}
-
-        {{/each}}
+          {{/each}}
+        </div>
       </div>
     </div>
+    <div class="col-4"></div>
   </div>
 </div>

@@ -1,18 +1,21 @@
-
-
-
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        {{#each result}}
-        <h5 class="card-title">League:{{name}} </h5>
-        <p class="card-text"> Director: {{director}}</p>
-        {{#each teams}}
-        <a href="../team/{{team_name}}">{{team_name}}</p></a>
-        {{/each}}
-        {{/each}}
+<div class="conatiner">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div class="card m-3 border-dark rounded bg-transparent">
+          <div class="card-body">
+            {{#each result}}
+            <h5 class="card-title border-dark rounded text-center">{{name}} </h5>
+            <p class="card-text"> Director: {{director}}</p>
+            <h5 class="card-title text-center">Teams</h5>
+            <hr>
+            {{#each teams}}
+            <a href="../team/{{team_name}}">{{team_name}}</p></a>
+            {{/each}}
+            {{/each}}
+          </div>
+        </div>
       </div>
-    </div>
+    <div class="col-4"></div>
   </div>
 </div>

@@ -28,5 +28,18 @@ body{
     color: lightslategray;
 }
 
+.card{
+    color: lightslategray;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+hr {
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    background-color: lightslategray;
+    
+}
 
 
