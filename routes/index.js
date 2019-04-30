@@ -13,11 +13,13 @@ router.get("/", index_controller.getHomePage);
 
 router.get("/login", index_controller.getLoginPage);
 
+router.post("/login", accountController.confirmLogin);
+
 router.get("/signup", index_controller.getSignUpPage);
 
-router.post("/account", accountController.createAccount);
+router.post("/signup", accountController.createAccount);
 
-router.post("/account/:username", accountController.confirmLogin);
+router.get("/account/:username", accountController.displayAccount);
 
 router.get("/team/:team_name", team_controller.team_detail);
 

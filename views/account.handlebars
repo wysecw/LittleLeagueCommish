@@ -1,2 +1,25 @@
-<h3>{{message}}</h3>
-{{!-- //TODO display account info, attached player info and ability to edit/add --}}
+
+
+
+<div class="container">
+<div class="row">
+    <div class="col-4"></div>
+<div class="col-4 m-5 text-white"> 
+    <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h3 class="card-title">Welcome back, {{body.username}}</h3>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{body.firstname}} {{body.lastname}}</li>
+        <li class="list-group-item">{{body.address}} {{body.city}}, {{body.state}} {{body.zip}}</li>
+        <li class="list-group-item">{{body.phone_number}}</li>
+        <li class="list-group-item">{{body.email}}</li>
+    </ul>
+    <a href="#" class="card-link">Edit Account Info</a>
+    <a href="#" class="card-link">Add a child</a>
+  </div>
+</div>
+</div>
+<div class="col-4"></div>
+</div>
+</div>
+

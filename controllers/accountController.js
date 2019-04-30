@@ -1,6 +1,7 @@
 let Users = require("../models/users");
 const bcrypt = require("bcrypt");
 //TODO username param and make unigue
+
 exports.confirmLogin = function(req, res, next) {
   Users.findOne({ username: req.body.username }, function(err, result) {
     if (err) {
@@ -12,12 +13,20 @@ exports.confirmLogin = function(req, res, next) {
     }
     if (bcrypt.compareSync(req.body.password, result.password)) {
       //req.session.user = {username: req.body.username};
-      res.render("account", {
-        message: "Welcome back, " + result.firstname
-      });
+      res.redirect("/account/" + req.body.username);
     } else {
       res.render("login", { pwError: "Incorrect Password" }); //redirects to password error page
     }
+  });
+};
+
+exports.displayAccount = function(req, res, next) {
+  Users.findOne({ username: req.params.username }, function(err, result) {
+    if (err) {
+      console.log(err);
+      res.render("500");
+    }
+    res.render("account", { body: result });
   });
 };
 

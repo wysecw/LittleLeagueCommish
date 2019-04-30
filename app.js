@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const indexRouter = require("./routes/index");
+const session = require("express-session");
 const usersRouter = require("./routes/users");
 const homeRouter = require("./routes/home");
 const coachRouter = require("./routes/coach");
@@ -49,6 +50,9 @@ app.set("port", process.env.PORT || 3000);
 //set the working directory
 app.use(express.static("public"));
 app.use(express.static("views"));
+// app.use(
+//   session({ secret: credentials.cookieSecret, cookie: { maxAge: 60000 } })
+// );
 
 //attach routers to end points
 app.use("/", indexRouter);
