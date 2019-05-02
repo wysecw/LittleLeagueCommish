@@ -1,7 +1,10 @@
-let Users = require("../models/users");
+//imports
+const Users = require("../models/users");
 const bcrypt = require("bcrypt");
-//TODO username param and make unigue
 
+/**
+ * User login- finds user name in database and verifies password
+ */
 exports.confirmLogin = function(req, res, next) {
   Users.findOne({ username: req.body.username }, function(err, result) {
     if (err) {
@@ -12,14 +15,15 @@ exports.confirmLogin = function(req, res, next) {
       res.render("login", { nameError: "User Name not found" });
     }
     if (bcrypt.compareSync(req.body.password, result.password)) {
-      //req.session.user = {username: req.body.username};
       res.redirect("/account/" + req.body.username);
     } else {
       res.render("login", { pwError: "Incorrect Password" }); //redirects to password error page
     }
   });
 };
-
+/**
+ * After login credentials have been verified retrieves account info and sends it to account page for rendering.
+ */
 exports.displayAccount = function(req, res, next) {
   Users.findOne({ username: req.params.username }, function(err, result) {
     if (err) {
@@ -29,7 +33,9 @@ exports.displayAccount = function(req, res, next) {
     res.render("account", { body: result });
   });
 };
-
+/**
+ * Takes new user information, creates a new user doc, checks if username is taken, then saves user document to database
+ */
 exports.createAccount = async function(req, res, next) {
   let newUser = new Users({
     username: req.body.username,

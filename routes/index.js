@@ -1,12 +1,14 @@
-//router page, tells express what to do based on the end point and GET or POSt
+/**Imports */
 const express = require("express");
 const router = express.Router();
 const index_controller = require("../controllers/indexController");
 const team_controller = require("../controllers/teamController");
 const league_controller = require("../controllers/leagueController");
 const accountController = require("../controllers/accountController");
-// GET home page.
 
+/**
+ * Router- calls controller function based on end point
+ */
 router.use(index_controller.dropdown_list);
 
 router.get("/", index_controller.getHomePage);

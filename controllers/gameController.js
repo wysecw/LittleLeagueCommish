@@ -1,59 +1,65 @@
-//controller pages hold the functions, queries etc.
+//imports
+const game = require("../models/game");
 
-const game = require('../models/game');
-
-//display a list of all games
-exports.game_list = function(req, res, next){
-    game.find({})
+/**
+ * Get a list of games from the database
+ */
+exports.game_list = function(req, res, next) {
+  game
+    .find({})
     .populate("game_date")
-    .exec(function (err, result) {
-    if (err) {
+    .exec(function(err, result) {
+      if (err) {
         console.log(err);
       } //catch any errors
       res.render("home", { game_list: result });
     });
 };
 
-// Display detail page for a specific game.
+/**
+ *  Display detail page for a specific game.
+ * */
+
 exports.game_detail = function(req, res) {
-    game.find({game_date: req.params.game_date})
+  game
+    .find({ game_date: req.params.game_date })
     .populate("game_date")
     .populate("home")
     .populate("visitors")
-    .exec(function (err, result) {
-    if (err) {
+    .exec(function(err, result) {
+      if (err) {
         console.log(err);
       } //catch any errors
       res.render("home", { spec_game: result });
     });
 };
 
-// Display game create form on GET.
+//TODO Display game create form on GET.
 exports.game_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: game create GET');
+  res.send("NOT IMPLEMENTED: game create GET");
 };
 
-// Handle game create on POST.
+//TODO Handle game create on POST.
 exports.game_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: game create POST');
+  res.send("NOT IMPLEMENTED: game create POST");
 };
 
-// Display game delete form on GET.
+//TODO Display game delete form on GET.
 exports.game_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: game delete GET');
+  res.send("NOT IMPLEMENTED: game delete GET");
 };
 
-// Handle game delete on POST.
+//TODO Handle game delete on POST.
 exports.game_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: game delete POST');
+  res.send("NOT IMPLEMENTED: game delete POST");
 };
 
-// Display game update form on GET.
+//TODO Display game update form on GET.
 exports.game_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: game update GET');
+  res.send("NOT IMPLEMENTED: game update GET");
 };
 
-// Handle game update on POST.
+// TODO Handle game update on POST.
 exports.game_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: game update POST');
+  res.send("NOT IMPLEMENTED: game update POST");
 };

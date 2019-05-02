@@ -1,8 +1,13 @@
+//imports
 const mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 let bcrypt = require("bcrypt");
+//number of salt rounds for password hashing
 let SALT_WORK_FACTOR = 10;
 
+/**
+ * Model for creating user documents
+ */
 let UserSchema = new Schema({
   username: String,
   password: String,
@@ -17,7 +22,9 @@ let UserSchema = new Schema({
   admin: Boolean,
   players: [{ type: Schema.Types.ObjectId, ref: "Player" }]
 });
-
+/**
+ * Function to encrypt user password before saving to database
+ */
 UserSchema.pre("save", function(next) {
   let user = this;
   if (!user.isModified("password")) {
@@ -34,7 +41,9 @@ UserSchema.pre("save", function(next) {
     });
   });
 });
-
+/**
+ * Static Function to check for existing user name
+ */
 UserSchema.statics.exists = async function(name) {
   const result = await this.findOne({ username: name })
     .select("_id")
