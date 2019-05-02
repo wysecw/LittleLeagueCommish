@@ -5,6 +5,9 @@ const index_controller = require("../controllers/indexController");
 const team_controller = require("../controllers/teamController");
 const league_controller = require("../controllers/leagueController");
 const accountController = require("../controllers/accountController");
+const player_controller = require("../controllers/playerController");
+const coach_controller = require("../controllers/coachController");
+const game_controller = require("../controllers/gameController");
 
 /**
  * Router- calls controller function based on end point

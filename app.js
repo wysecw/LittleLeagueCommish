@@ -6,13 +6,8 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const indexRouter = require("./routes/index");
 const session = require("express-session");
-const usersRouter = require("./routes/users");
-const homeRouter = require("./routes/home");
-const coachRouter = require("./routes/coach");
-const leagueRouter = require("./routes/league");
-const playerRouter = require("./routes/player");
-const teamRouter = require("./routes/team");
 const credential = require("./credentials");
+//const homeRouter = require("./routes/home");
 
 //create an instance of express
 let app = express();
